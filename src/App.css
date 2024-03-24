@@ -60,14 +60,29 @@ a {
 
 .success {
     color: rgb(10, 126, 109);
+    background-color: lightgreen;
     font-weight: bold;
     border: 3px solid rgb(10, 126, 109);
-    width: fit-content;
+    width: 100%;
     text-align: center;
     padding: 0.25rem 0.55rem;
     border-radius: 0.75rem;
     opacity: 1;
 }
+
+.error {
+    color:rgb(215, 55, 80);
+    background-color: lightpink;
+    font-weight: bold;
+    border: 3px solid rgb(215, 55, 80);
+    width: 100%;
+    text-align: center;
+    padding: 0.25rem 0.55rem;
+    border-radius: 0.75rem;
+    opacity: 1;
+}
+
+
 
 .invisible-msg {
 
