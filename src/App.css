@@ -1,0 +1,78 @@
+.container {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(242, 241, 247);
+    padding: 1.875rem;
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+.form {
+    background-color: #ffff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+}
+
+.inp {
+    width: 100%;
+    padding: 0.70rem;
+    border-radius: 0.75rem;
+    text-indent: 0.25rem;
+    border: 2px solid black;
+}
+
+.btn {
+    padding: 0.75rem 1.875rem;
+    border-radius: 0.75rem;
+    background-color: rgb(215, 55, 80);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(200, 99, 114); 
+}
+
+/* linkler temelde hala a element oldugu icin linkleri degistrimek icin a kullanman yeterli */
+a {
+    color: rgb(215, 55, 80);
+    text-decoration: none;
+}
+
+.nf {
+    justify-content: center;
+   
+}
+
+.not-found {
+    text-align: center;
+}
+
+.success {
+    color: rgb(10, 126, 109);
+    font-weight: bold;
+    border: 3px solid rgb(10, 126, 109);
+    width: fit-content;
+    text-align: center;
+    padding: 0.25rem 0.55rem;
+    border-radius: 0.75rem;
+    opacity: 1;
+}
+
+.invisible-msg {
+
+    width: fit-content;
+    opacity: 0;
+    font-size: 0.1rem;
+
+}
