@@ -1,7 +1,10 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { UserContext } from "../contexts/UserContext";
 import { Link, useNavigate } from "react-router-dom"
 export default function Login()
 {
+
+    const loggedData = useContext(UserContext);
 
     const navigate = useNavigate();
 
@@ -62,6 +65,8 @@ export default function Login()
             if(data.token!==undefined)
             {
                 localStorage.setItem("app-user",JSON.stringify(data));
+
+                loggedData.setLoggedUser(data);
 
                 navigate("/track");
             }

@@ -4,25 +4,39 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Notfound from './components/Notfound';
 import Track from './components/Track';
+import Private from './components/Private';
+import Demo from './components/Demo';
+
+import { UserContext } from './contexts/UserContext';
+import { useState } from 'react';
+
 
 function App() {
+
+  const [loggedUser,setLoggedUser] = useState(localStorage.getItem("app-user"));
+
 
   return (
     <>
 
-    <BrowserRouter>
+    <UserContext.Provider value={{loggedUser, setLoggedUser}}>
 
-        <Routes>
+        <BrowserRouter>
 
-          <Route path='/' element={<Login/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<Register/>}/>
-          <Route path='/track' element={<Track/>}/>
-          <Route path='*' element={<Notfound/>}/>
+            <Routes>
 
-        </Routes>
-    
-    </BrowserRouter>
+              <Route path='/' element={<Login/>}/>
+              <Route path='/login' element={<Login/>}/>
+              <Route path='/register' element={<Register/>}/>
+              <Route path='/track' element={<Private Component={Track}/>}/>
+              <Route path='/demo' element={<Private Component={Demo}/>}/>
+              <Route path='*' element={<Notfound/>}/>
+
+            </Routes>
+        
+        </BrowserRouter>
+
+    </UserContext.Provider>
 
     </>
   )
