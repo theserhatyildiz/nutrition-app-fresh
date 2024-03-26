@@ -13,7 +13,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const [loggedUser,setLoggedUser] = useState(localStorage.getItem("app-user"));
+  const [loggedUser,setLoggedUser] = useState(JSON.parse(localStorage.getItem("app-user")));
 
 
   return (

@@ -82,12 +82,96 @@ a {
     opacity: 1;
 }
 
-
-
 .invisible-msg {
 
     width: fit-content;
     opacity: 0;
     font-size: 0.1rem;
 
+}
+
+/* track page css */
+
+.track-container {
+    flex-direction: column;
+    position: relative;
+}
+
+.search{
+    width: 100%;
+    padding: 0.60rem;
+    background-color: #ffff;
+    border-radius: 0.65rem;
+    position: relative;
+    
+}
+
+.search-inp{
+    width: 100%;
+    border: none;
+    text-indent: 0.25rem;
+    font-size: 1rem;
+}
+
+.search-results{
+    width: 100%;
+    background-color: white;
+    border-radius: 0.60rem;
+    padding: 0.625rem 0.325rem;
+    margin-top: 1rem;
+    position: absolute;
+    
+}
+
+.food{
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.25rem 0.40rem;
+    background-color: white;
+    border-radius: 0.60rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 0.35rem;
+    
+}
+
+.food h2{
+    padding-left: 0.30rem;   
+}
+
+.nutrient{
+    width: 50%;
+    padding: 0.625rem 0rem;
+    background-color: rgb(242, 241, 247);
+}
+
+.n-title{
+    font-weight: bold;
+}
+
+.nutrient p{
+    margin-left: 0.85rem;
+}
+
+.inp-quant{
+    border: 2px solid rgb(227, 227, 227);
+    border-radius: 0.25rem;
+    text-indent: 0.25rem;
+    background-color: rgb(242, 241, 247);
+    padding: 0.25rem;
+    
+}
+
+.btn-add{
+    padding: 0.25rem 1rem;
+    border-radius: 0.75rem;
+    background-color: rgb(215, 55, 80);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    margin-left: 0.55rem;
+    
 }
