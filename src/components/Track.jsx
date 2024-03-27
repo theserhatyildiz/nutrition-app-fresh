@@ -1,5 +1,6 @@
 import { UserContext } from "../contexts/UserContext"
 import { useContext, useEffect, useState } from "react"
+import Food from "./Food";
 
 export default function Track()
 {
@@ -9,9 +10,6 @@ export default function Track()
 
     const [food,setFood] = useState(null);
 
-    useEffect(()=>{
-        console.log(food);
-    })
 
     function searchFood(event)
     {
@@ -61,7 +59,7 @@ export default function Track()
         <div className="search">
 
                 <input className="search-inp" onChange={searchFood} type="search" placeholder="Search food item"/>
-        </div>
+        
 
             {
                 foodItems.length!==0?(
@@ -81,42 +79,14 @@ export default function Track()
                     </div>
                 ):null
             }
-        
+        </div>
 
-            <div className="food">
-
-                <h2>Name (100 kcal)</h2>
-               
-
-                <div className="nutrient">
-                    <p className="n-title">Pro</p>
-                    <p className="n-value">230g</p>
-                </div>
-
-                <div className="nutrient">
-                    <p className="n-title">Carbs</p>
-                    <p className="n-value">230g</p>
-                </div>
-
-                <div className="nutrient">
-                    <p className="n-title">Fat</p>
-                    <p className="n-value">230g</p>
-                </div>
-
-                <div className="nutrient">
-                    <p className="n-title">Fiber</p>
-                    <p className="n-value">230g</p>
-                </div>
-
-                <div>
-
-                <input type="number" className="inp-quant" placeholder="Quantity in Grams" />
-                <button className="btn-add">Add</button>
-
-                </div>
-
-
-            </div>
+            {
+                food!==null?(
+                    <Food food = {food}/>
+                ):null
+            }
+            
 
         </section>
 
