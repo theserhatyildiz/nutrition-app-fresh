@@ -126,13 +126,13 @@ a {
 .food{
     margin-top: 1rem;
     width: 100%;
-    padding: 0.25rem 0.40rem;
+    padding: 0.75rem 0.85rem;
+    padding-bottom: 0.85rem;
     background-color: white;
     border-radius: 0.60rem;
     display: flex;
     flex-wrap: wrap;
     row-gap: 0.35rem;
-    
 }
 
 .food h2{
@@ -143,6 +143,8 @@ a {
     width: 50%;
     padding: 0.625rem 0rem;
     background-color: rgb(242, 241, 247);
+    border-radius: 0.20rem;
+    
 }
 
 .n-title{
@@ -159,6 +161,7 @@ a {
     text-indent: 0.25rem;
     background-color: rgb(242, 241, 247);
     padding: 0.25rem;
+    margin-top: 0.25rem;
     
 }
 
@@ -173,4 +176,42 @@ a {
     cursor: pointer;
     margin-left: 0.55rem;
     
+}
+
+/* diet page css */
+
+.diet-container{
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 0.65rem;
+
+    
+}
+
+.start-tracking {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 4rem;
+    color:rgb(215, 55, 80);
+    padding-top: 2rem;
+}
+
+.item{
+    width:100%;
+    padding: 0.25rem 0.5rem;
+    background-color: #ffff;
+    border-radius: 0.65rem;
+}
+
+.item h3{
+    font-size: 0.85rem;
+}
+
+.item h4{
+    color: rgb(215, 55, 80);
+    font-size: 0.75rem;
+}
+
+.item p{
+    font-size: 0.75rem;
 }

@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react"
+import { UserContext } from "../contexts/UserContext";
+import { useContext } from "react";
 
 export default function Food(props)
 {
 
-    const [quantity,setQuantity] = useState(100);
+    const [eatenQuantity,setEatenQuantity] = useState(100);
     const [food,setFood] = useState({});
     const [foodInitial,setFoodInitial] = useState({});
+    let loggedData = useContext(UserContext);
+
 
 
 
@@ -14,15 +18,16 @@ export default function Food(props)
         setFoodInitial(props.food);
     },[props.food])
 
-    function handleInput(event)
-    {
-        setQuantity(Number(event.target.value));
-    }
+  console.log(loggedData);
 
     function calculateMacros(event)
     {
-        
-        {
+
+            if(event.target.value.length!==0)
+            {
+            
+            let quantity = Number(event.target.value);
+            setEatenQuantity(quantity);
 
             let copyFood = {...food};
 
@@ -33,16 +38,49 @@ export default function Food(props)
             copyFood.Calorie = (foodInitial.Calorie*quantity)/100;
 
             setFood(copyFood);
-
         }
-        
+    }
+
+    function trackFoodItem()
+    {
+        let trackedItem = {
+            userId:loggedData.loggedUser.userid,
+            foodId:food._id,
+            details:{
+                Protein:food.Protein,
+                Carbohydrate:food.Carbohydrate,
+                Fat:food.Fat,
+                Fiber:food.Fiber,
+                Calorie:food.Calorie
+            },
+            quantity:eatenQuantity
+        }
+
+        console.log(trackedItem)
+
+        fetch("http://localhost:8000/track",{
+            method:"POST",
+            body:JSON.stringify(trackedItem),
+            headers:{
+                "Authorization":`Bearer ${loggedData.loggedUser.token}`,
+                "Content-Type":"application/json"
+            }
+        })
+        .then((response)=>response.json())
+        .then((data)=>{
+            console.log(data);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+
     }
 
     return(
 
             <div className="food">
 
-            <h2>{food.NameTr} - {quantity}g: {food.Calorie} kcal</h2>
+            <h2>{food.NameTr} - {eatenQuantity}g: {food.Calorie} kcal</h2>
 
             <div className="nutrient">
                 <p className="n-title">Pro</p>
@@ -64,13 +102,11 @@ export default function Food(props)
                 <p className="n-value">{food.Fiber}g</p>
             </div>
 
-            <div>
+            <div className="track-control">
 
-            <input type="number" onChange={handleInput} className="inp-quant" placeholder="Quantity in Grams" />
+            <input type="number" onChange={calculateMacros} className="inp-quant" placeholder="Quantity in Grams" />
 
-            <button onClick={calculateMacros}>Calculate</button>
-
-            <button className="btn-add">Add</button>
+            <button className="btn-add" onClick={trackFoodItem}>Add</button>
 
 
             </div>

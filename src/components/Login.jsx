@@ -68,7 +68,7 @@ export default function Login()
 
                 loggedData.setLoggedUser(data);
 
-                navigate("/track");
+                navigate("/diet");
             }
 
 
